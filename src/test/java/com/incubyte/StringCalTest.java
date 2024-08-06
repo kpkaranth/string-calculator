@@ -50,7 +50,18 @@ class StringCalTest {
 
     @Test
     void add_addTwoNumbersDelimitedByNewLineAndComma2() {
-        assertEquals(9, stringCal.add("1,2\n3,2,1\n0"));
+        assertEquals(9, stringCal.add("1,2\n3,2 ,1\n0 "));
     }
+
+    @Test
+    void add_addTwoNumbersDelimitedByNewLineAndComma3WithSpace() {
+        assertEquals(7, stringCal.add("1,2\n3, ,1\n0 "));
+    }
+
+    @Test
+    void add_addTwoNumbersDelimitedWithBackWardSlash() {
+        assertEquals(6, stringCal.add("//;\n1;2;3"));
+    }
+
 
 }
