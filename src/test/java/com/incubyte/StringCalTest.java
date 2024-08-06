@@ -38,4 +38,19 @@ class StringCalTest {
         assertEquals(3, stringCal.add("1 ,2 "));
     }
 
+    @Test
+    void add_addTwoNumbersDelimitedByCommaAndNewLine() {
+        assertEquals(6, stringCal.add("1\n2,3"));
+    }
+
+    @Test
+    void add_addTwoNumbersDelimitedByNewLineAndComma() {
+        assertEquals(6, stringCal.add("1,2\n3"));
+    }
+
+    @Test
+    void add_addTwoNumbersDelimitedByNewLineAndComma2() {
+        assertEquals(9, stringCal.add("1,2\n3,2,1\n0"));
+    }
+
 }

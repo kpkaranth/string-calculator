@@ -1,5 +1,9 @@
 package com.incubyte;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class StringCal {
 
     public int add(String numbersStr) {
@@ -7,8 +11,8 @@ public class StringCal {
             return 0;
         }
 
-        String delimiter = ",";
-        String[] arrNumber = numbersStr.split(delimiter);
+        String delimiter = ",\n";
+        String[] arrNumber = getNumbers(numbersStr, delimiter);
         int sum = 0;
 
         for (String numberStr : arrNumber) {
@@ -19,5 +23,21 @@ public class StringCal {
         }
 
        return sum;
+    }
+
+//    TODO: Explore if there is better way to do things
+    public String[] getNumbers(String numbersStr, String delimiterStr) {
+        String[] delimiters = delimiterStr.split("");
+        List<String> list = new ArrayList<>();
+
+        //Split by ','
+        String[] arrNumber1 = numbersStr.split(delimiters[0]);
+        for (String numbersStr2 : arrNumber1) {
+            //Split by '\n'
+            String[] arrNumber2 = numbersStr2.split(delimiters[1]);
+            list.addAll(new ArrayList<>(Arrays.asList(arrNumber2)));
+        }
+
+        return list.toArray(new String[0]);
     }
 }
