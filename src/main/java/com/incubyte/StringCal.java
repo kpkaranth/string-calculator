@@ -14,12 +14,12 @@ public class StringCal {
         String delimiter = ",\n";
         if (numbersStr.startsWith("//")) {
             int index = numbersStr.indexOf("\n");
-            delimiter = ";";
+            delimiter = numbersStr.substring(2, index);
             numbersStr = numbersStr.substring(index + 1);
         }
+
         String[] arrNumber = getNumbers(numbersStr, delimiter);
         int sum = 0;
-
         for (String numberStr : arrNumber) {
             try {
                 sum += Integer.parseInt(numberStr.trim());
