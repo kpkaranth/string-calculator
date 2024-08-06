@@ -6,6 +6,11 @@ public class StringCal {
         if (numbers == null || numbers.isEmpty()) {
             return 0;
         }
-        return Integer.parseInt(numbers);
+
+        try {
+            return Integer.parseInt(numbers);
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 }

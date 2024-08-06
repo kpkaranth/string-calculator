@@ -23,4 +23,14 @@ class StringCalTest {
         assertEquals(12, stringCal.add("12"));
     }
 
+    @Test
+    public void add_invalidNumber() {
+        assertEquals(0, stringCal.add("12a"));
+    }
+
+    @Test
+    void add_addTwoNumbersDelimitedByComma() {
+        assertEquals(3, stringCal.add("1,2"));
+    }
+
 }
