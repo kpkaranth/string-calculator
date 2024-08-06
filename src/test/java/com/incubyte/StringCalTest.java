@@ -70,8 +70,15 @@ class StringCalTest {
     }
 
     @Test
+    void add_addNumbersContainingNegativeValue() {
+        IncubyteException incubyteException = assertThrows(IncubyteException.class, () -> stringCal.add("1,-2,3"));
+        assertEquals("negative numbers not allowed :[-2]", incubyteException.getMessage());
+    }
+
+    @Test
     void add_addNumbersContainingNegativeValues() {
-        assertThrows(IncubyteException.class, () -> stringCal.add("1,-2,3"), "negative numbers not allowed : [2]");
+        IncubyteException incubyteException = assertThrows(IncubyteException.class, () -> stringCal.add("1,-2,3,-4"));
+        assertEquals("negative numbers not allowed :[-2, -4]", incubyteException.getMessage());
     }
 
 }
