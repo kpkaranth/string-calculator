@@ -66,7 +66,7 @@ class StringCalTest {
 
     @Test
     void add_addNumbersDelimitedWithBackWardSlashAndNewDelimiter() {
-        assertEquals(6, stringCal.add("//#\n1#2#3"));
+        assertEquals(6, stringCal.add("//#\n1#2\n3"));
     }
 
     @Test

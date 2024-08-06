@@ -14,7 +14,7 @@ public class StringCal {
         String delimiter = ",\n";
         if (numbersStr.startsWith("//")) {
             int index = numbersStr.indexOf("\n");
-            delimiter = numbersStr.substring(2, index);
+            delimiter = numbersStr.substring(2, index) + "\n";
             numbersStr = numbersStr.substring(index + 1);
         }
 
