@@ -20,11 +20,21 @@ public class StringCal {
 
         String[] arrNumber = getNumbers(numbersStr, delimiter);
         int sum = 0;
+        List<Integer> negativeNumbers = new ArrayList<>();
         for (String numberStr : arrNumber) {
             try {
-                sum += Integer.parseInt(numberStr.trim());
+                int number = Integer.parseInt(numberStr.trim());
+                if (number < 0) {
+                    negativeNumbers.add(number);
+                } else {
+                    sum += number;
+                }
             } catch (NumberFormatException e) {
             }
+        }
+
+        if (!negativeNumbers.isEmpty()) {
+            throw new IncubyteException("negative numbers not allowed :" + negativeNumbers);
         }
 
         return sum;

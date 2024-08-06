@@ -3,6 +3,7 @@ package com.incubyte;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class StringCalTest {
 
@@ -44,28 +45,33 @@ class StringCalTest {
     }
 
     @Test
-    void add_addTwoNumbersDelimitedByNewLineAndComma() {
+    void add_addNumbersDelimitedByNewLineAndComma() {
         assertEquals(6, stringCal.add("1,2\n3"));
     }
 
     @Test
-    void add_addTwoNumbersDelimitedByNewLineAndComma2() {
+    void add_addNumbersDelimitedByNewLineAndComma2() {
         assertEquals(9, stringCal.add("1,2\n3,2 ,1\n0 "));
     }
 
     @Test
-    void add_addTwoNumbersDelimitedByNewLineAndComma3WithSpace() {
+    void add_addNumbersDelimitedByNewLineAndComma3WithSpace() {
         assertEquals(7, stringCal.add("1,2\n3, ,1\n0 "));
     }
 
     @Test
-    void add_addTwoNumbersDelimitedWithBackWardSlash() {
+    void add_addNumbersDelimitedWithBackWardSlash() {
         assertEquals(6, stringCal.add("//;\n1;2;3"));
     }
 
     @Test
-    void add_addTwoNumbersDelimitedWithBackWardSlashAndNewDelimiter() {
+    void add_addNumbersDelimitedWithBackWardSlashAndNewDelimiter() {
         assertEquals(6, stringCal.add("//#\n1#2#3"));
+    }
+
+    @Test
+    void add_addNumbersContainingNegativeValues() {
+        assertThrows(IncubyteException.class, () -> stringCal.add("1,-2,3"), "negative numbers not allowed : [2]");
     }
 
 }
