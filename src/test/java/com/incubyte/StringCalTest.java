@@ -33,4 +33,9 @@ class StringCalTest {
         assertEquals(3, stringCal.add("1,2"));
     }
 
+    @Test
+    void add_addTwoNumbersDelimitedByCommaWithSpace() {
+        assertEquals(3, stringCal.add("1 ,2 "));
+    }
+
 }
