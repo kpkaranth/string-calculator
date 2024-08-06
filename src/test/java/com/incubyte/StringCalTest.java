@@ -18,4 +18,9 @@ class StringCalTest {
         assertEquals(0, stringCal.add(null));
     }
 
+    @Test
+    public void add_validNumber() {
+        assertEquals(12, stringCal.add("12"));
+    }
+
 }
